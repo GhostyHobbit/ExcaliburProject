@@ -1,10 +1,12 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 
 const Resources = {
-    Fish: new ImageSource('images/fish.png')
+    Alchemist: new ImageSource('images/alchemistwolamp.png'),
+    Letter: new ImageSource('images/letter.png')
 }
 const ResourceLoader = new Loader([
-    Resources.Fish
+    Resources.Alchemist,
+    Resources.Letter
 ])
 
 export { Resources, ResourceLoader }
