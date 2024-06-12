@@ -7,7 +7,7 @@ import { Letter } from './letter.js'
 export class Game extends Engine {
 
     constructor() {
-        super({ width: 800, height: 600 })
+        super({ width: 1260, height: 720 })
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
