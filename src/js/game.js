@@ -23,7 +23,7 @@ export class Game extends Engine {
         this.add(letter)
 
         this.add('levelone', new LevelOne())
-        // this.goToScene('levelone')
+        //this.goToScene('levelone')
     }
 }
 
