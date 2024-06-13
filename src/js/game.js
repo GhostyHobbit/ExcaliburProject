@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector } from "excalibur"
+import { Actor, Engine, Vector, DisplayMode } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
@@ -8,7 +8,10 @@ import { LevelOne } from './levelone.js'
 export class Game extends Engine {
 
     constructor() {
-        super({ width: 1260, height: 720 })
+        super({
+            width: 1260,
+            height: 720,
+            displayMode: DisplayMode.FitScreen, })
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
