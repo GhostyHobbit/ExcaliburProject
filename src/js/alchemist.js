@@ -21,9 +21,11 @@ export class Alchemist extends Actor {
         if (engine.input.keyboard.isHeld(Input.Keys.D)) {
             this.speed = 100
             this.vel = new Vector(this.speed, 0)
+            this.graphics.flipHorizontal = false
         } else if (engine.input.keyboard.isHeld(Input.Keys.A)) {
             this.speed = -100
             this.vel = new Vector(this.speed, 0)
+            this.graphics.flipHorizontal = true
         } else {
             this.vel = new Vector(0, 0)
         }
@@ -32,7 +34,7 @@ export class Alchemist extends Actor {
     }
 
     interact(event) {
-        if (this.game.input.keyboard.isHeld(Input.Keys.E)) {
+        if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
             console.log("hello")
         }
     }
