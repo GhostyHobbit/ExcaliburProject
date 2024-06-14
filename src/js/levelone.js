@@ -19,5 +19,7 @@ export class LevelOne extends Scene {
         const alchemist = new Alchemist()
         alchemist.pos = new Vector(0, 600)
         this.add(alchemist)
+
+        Resources.LevelOneMusic.play(0.8);
     }
 }
