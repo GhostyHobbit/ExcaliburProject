@@ -9,6 +9,6 @@ export class Dialogue extends Actor {
     }
 
     onInitialize() {
-
+        
     }
 }
