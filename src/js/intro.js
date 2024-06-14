@@ -20,6 +20,7 @@ export class Intro extends Scene {
         this.add(alchemist)
     }
     onActivate(ctx) {
-      
+        Resources.MainThemeMusic.play(0.8);
+        Resources.MainThemeMusic.loop(true);
     }
 }
