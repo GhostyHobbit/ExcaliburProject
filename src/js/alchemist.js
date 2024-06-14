@@ -12,8 +12,8 @@ export class Alchemist extends Actor {
     onInitialize(engine) {
         this.game = engine
 
-        this.graphics.use(Resources.Alchemist.toSprite())
-        this.pos = new Vector(150, 543)
+        // this.graphics.use(Resources.Alchemist.toSprite())
+        // this.pos = new Vector(150, 543)
         this.on('precollision', (event) => this.interact(event))
 
         this.scene.camera.strategy.lockToActor(this)

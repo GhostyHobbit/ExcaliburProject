@@ -2,6 +2,7 @@ import { Actor, Scene, Vector } from "excalibur"
 import { Resources } from './resources'
 import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
+import { Dialogue } from './dialogue.js'
 
 export class Intro extends Scene {
     constructor() {
@@ -18,6 +19,12 @@ export class Intro extends Scene {
         alchemist.graphics.use(Resources.AlchemistLamp.toSprite())
         alchemist.pos = new Vector(0, 600)
         this.add(alchemist)
+
+        const letter = new Letter()
+        this.add(letter)
+
+        const dialogue = new Dialogue()
+        this.add(dialogue)
     }
     onActivate(ctx) {
       
