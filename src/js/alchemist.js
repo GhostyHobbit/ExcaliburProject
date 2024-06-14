@@ -1,4 +1,4 @@
-import { Actor, Engine, Vector, Input, Keys } from "excalibur"
+import { Actor, Engine, Vector, Input, Keys, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 
 export class Alchemist extends Actor {
@@ -7,6 +7,7 @@ export class Alchemist extends Actor {
 
     constructor() {
         super({width: Resources.Alchemist.width, height: Resources.Alchemist.height})
+        this.body.collisionType = CollisionType.Active
     }
 
     onInitialize(engine) {
