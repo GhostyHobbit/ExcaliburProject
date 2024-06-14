@@ -1,9 +1,12 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy } from "excalibur"
+import { Actor, Engine, Vector, Camera, ScreenElement, DisplayMode, Sound, SolverStrategy } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
-import { Alchemist } from './alchemist.js'
+import { Label, FontUnit, Font} from "excalibur";
+import { Alchemist } from './alchemist.js'  
 import { Letter } from './letter.js'
+import { Dialogue } from './dialogue.js'
 import { LevelOne } from './levelone.js'
+import { Intro } from './intro.js'
 
 export class Game extends Engine {
 
@@ -20,14 +23,23 @@ export class Game extends Engine {
     }
 
     startGame() {
-        const alchemist = new Alchemist()
-        this.add(alchemist)
-
-        const letter = new Letter()
-        this.add(letter)
-
+        this.add('intro', new Intro())
         this.add('levelone', new LevelOne())
-        //this.goToScene('levelone')
+        this.goToScene('intro')
+
+        let label = new Label({
+            text: 'Score: 0',
+            pos: new Vector(100, 100),
+            font: new Font({
+                family: 'impact',
+                size: 24,
+                unit: FontUnit.Px
+            })
+        })
+    
+        this.add(label)
+        label.text = 'Score: 100'
+
     }
 }
 
