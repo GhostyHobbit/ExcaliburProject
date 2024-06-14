@@ -28,6 +28,5 @@ export class Intro extends Scene {
     }
     onActivate(ctx) {
         Resources.MainThemeMusic.play(0.8);
-        Resources.MainThemeMusic.loop(true);
     }
 }
