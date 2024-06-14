@@ -1,4 +1,4 @@
-import { Actor, Scene, Vector } from "excalibur"
+import { Actor, Scene, Vector, Sound } from "excalibur"
 import { Resources } from './resources'
 import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
