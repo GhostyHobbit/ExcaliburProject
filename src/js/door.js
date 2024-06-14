@@ -1,5 +1,6 @@
-import { Actor, Vector, CollisionType } from "excalibur";
+import { Engine, Actor, Vector, CollisionType } from "excalibur";
 import { Resources } from './resources';
+import { Alchemist } from "./alchemist";
 
 export class Door extends Actor {
   constructor() {
@@ -11,11 +12,15 @@ export class Door extends Actor {
   }
 
   onInitialize(engine) {
-    this.graphics.use(Resources.L1Door.toSprite());
     this.pos = new Vector(2720,437)
-
-    //if (engine.input.keyboard.isHeld(Keys.E)) {
-      //this.goToScene('intro')
-    //}
+    this.on('collisionstart', (event) => this.opendoor(event))
   }
+
+  opendoor(event){
+    if (event.other instanceof Alchemist) {
+        if (engine.input.keyboard.isHeld(Keys.E)) {
+            this.scene.intro()
+            }
+        }
+    }
 }

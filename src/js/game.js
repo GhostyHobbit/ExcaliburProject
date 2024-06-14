@@ -17,6 +17,7 @@ export class Game extends Engine {
             displayMode: DisplayMode.FitScreen,
             physics: {
             solver: SolverStrategy.Realistic,
+            displayMode: DisplayMode.FitScreen,
             gravity: new Vector(0, 1260),
     } })
         this.start(ResourceLoader).then(() => this.startGame())
