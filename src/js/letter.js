@@ -3,6 +3,8 @@ import { Resources, ResourceLoader } from './resources.js'
 
 export class Letter extends Actor {
 
+    letterText
+
     constructor() {
         super({width: Resources.Letter.width, height: Resources.Letter.height})
     }
