@@ -1,8 +1,8 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, Camera, ScreenElement, DisplayMode } from "excalibur"
+import { Actor, Engine, Vector, Camera, ScreenElement, DisplayMode, Sound, SolverStrategy } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Label, FontUnit, Font} from "excalibur";
-import { Alchemist } from './alchemist.js'
+import { Alchemist } from './alchemist.js'  
 import { Letter } from './letter.js'
 import { Dialogue } from './dialogue.js'
 import { LevelOne } from './levelone.js'
@@ -12,22 +12,18 @@ export class Game extends Engine {
 
     constructor() {
         super({
-            width: 1260,
+            width: 1280,
             height: 720,
-            displayMode: DisplayMode.FitScreen, })
+            displayMode: DisplayMode.FitScreen,
+            physics: {
+            solver: SolverStrategy.Realistic,
+            displayMode: DisplayMode.FitScreen,
+            gravity: new Vector(0, 1280),
+    } })
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
     startGame() {
-        const letter = new Letter()
-        this.add(letter)
-
-        const dialogue = new Dialogue()
-        this.add(letter)
-
-        const alchemist = new Alchemist()
-        this.add(alchemist)
-
         this.add('intro', new Intro())
         this.add('levelone', new LevelOne())
         this.goToScene('intro')

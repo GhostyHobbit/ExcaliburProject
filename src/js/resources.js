@@ -8,10 +8,12 @@ const Resources = {
     SceneTransition: new ImageSource('images/sparklybar.png'),
     LevelOneScreenOne: new ImageSource('images/levelone/sceneone.png'),
     Intro: new ImageSource('images/introscene.png'),
+    Dialogue: new ImageSource('images/dialogue.png'),
+    L1Door: new ImageSource('images/levelone/door.png'),
     // music
-    // MainThemeMusic: new Sound("music/CLE_4_Main_Theme.mp3"),
-    // LevelOneMusic: new Sound('music/CLE_4_Level_1.mp3'),
-    // LevelTwoMusic: new Sound('music/CLE_4_Level_2.mp3')
+    MainThemeMusic: new Sound('music/CLE_4_Main_Theme.mp3'),
+    LevelOneMusic: new Sound('music/CLE_4_Level_1.mp3'),
+    LevelTwoMusic: new Sound('music/CLE_4_Level_2.mp3')
 }
 const ResourceLoader = new Loader()
 for (let res of Object.values(Resources)) {

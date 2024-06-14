@@ -1,4 +1,5 @@
-import { Actor, Engine, Vector, Input, Keys, Camera, ScreenElement, BoundingBox } from "excalibur"
+
+import { Actor, Engine, Vector, Input, Keys, Camera, ScreenElement, BoundingBox, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 
 export class Alchemist extends Actor {
@@ -7,13 +8,14 @@ export class Alchemist extends Actor {
 
     constructor() {
         super({width: Resources.Alchemist.width, height: Resources.Alchemist.height})
+        this.body.collisionType = CollisionType.Active
     }
 
     onInitialize(engine) {
         this.game = engine
 
-        this.graphics.use(Resources.Alchemist.toSprite())
-        this.pos = new Vector(150, 543)
+        // this.graphics.use(Resources.Alchemist.toSprite())
+        // this.pos = new Vector(150, 543)
         this.on('precollision', (event) => this.interact(event))
 
         this.scene.camera.strategy.lockToActor(this)
