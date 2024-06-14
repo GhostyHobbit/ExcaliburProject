@@ -12,12 +12,12 @@ export class Game extends Engine {
 
     constructor() {
         super({
-            width: 1260,
+            width: 1280,
             height: 720,
             displayMode: DisplayMode.FitScreen,
             physics: {
             solver: SolverStrategy.Realistic,
-            gravity: new Vector(0, 1260),
+            gravity: new Vector(0, 1280),
     } })
         this.start(ResourceLoader).then(() => this.startGame())
     }
