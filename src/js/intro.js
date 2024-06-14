@@ -1,4 +1,4 @@
-import { Actor, Scene, Vector } from "excalibur"
+import { Actor, Scene, Vector, Sound } from "excalibur"
 import { Resources } from './resources'
 import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
@@ -27,6 +27,7 @@ export class Intro extends Scene {
         this.add(dialogue)
     }
     onActivate(ctx) {
-      
+        Resources.MainThemeMusic.play(0.8);
+        Resources.MainThemeMusic.loop(true);
     }
 }
