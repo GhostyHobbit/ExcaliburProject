@@ -6,6 +6,7 @@ import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
 import { Dialogue } from './dialogue.js'
 import { LevelOne } from './levelone.js'
+import { Intro } from './intro.js'
 
 export class Game extends Engine {
 
@@ -27,8 +28,9 @@ export class Game extends Engine {
         const alchemist = new Alchemist()
         this.add(alchemist)
 
+        this.add('intro', new Intro())
         this.add('levelone', new LevelOne())
-        // this.goToScene('levelone')
+        this.goToScene('intro')
 
         let label = new Label({
             text: 'Score: 0',
