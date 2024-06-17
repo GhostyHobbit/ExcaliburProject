@@ -6,6 +6,8 @@ import { Alchemist } from "./alchemist.js";
 
 export class Dialogue extends Actor {
 
+    dialogueShowing = false
+
     constructor() {
         super({width: Resources.Dialogue.width, height: Resources.Dialogue.height})
     }
