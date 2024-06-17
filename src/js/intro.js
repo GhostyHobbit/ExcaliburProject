@@ -3,6 +3,7 @@ import { Resources } from './resources'
 import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
 import { Dialogue } from './dialogue.js'
+import { Floor } from './floors.js'
 import { SceneTransition } from "./sceneTransition.js"
 
 export class Intro extends Scene {
@@ -18,7 +19,7 @@ export class Intro extends Scene {
 
         const alchemist = new Alchemist()
         alchemist.graphics.use(Resources.AlchemistLamp.toSprite())
-        alchemist.pos = new Vector(0, 600)
+        alchemist.pos = new Vector(100, 300)
         this.add(alchemist)
 
         const scene = new SceneTransition()
@@ -30,6 +31,10 @@ export class Intro extends Scene {
 
         const dialogue = new Dialogue()
         this.add(dialogue)
+
+        const floor = new Floor()
+        floor.pos = new Vector(2000, 900)
+        this.add(floor)
     }
     onActivate(ctx) {
         Resources.MainThemeMusic.play(0.8);

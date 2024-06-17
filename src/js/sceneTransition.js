@@ -7,4 +7,7 @@ export class SceneTransition extends Actor {
         this.graphics.use(Resources.SceneTransition.toSprite())
         this.pos = new Vector(3740, 450)
     }
+    onInitialize() {
+        
+    }
 }
