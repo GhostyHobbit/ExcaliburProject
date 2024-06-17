@@ -27,6 +27,6 @@ export class Dialogue extends Actor {
      }
 
      onPostUpdate() {
-        this.pos = new Vector (this.scene.actors[1].pos.x, 200)
+        this.pos = new Vector (this.scene.actors[2].pos.x, 200)
      }
 }

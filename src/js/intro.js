@@ -23,7 +23,7 @@ export class Intro extends Scene {
 
         const alchemist = new Alchemist()
         alchemist.graphics.use(Resources.AlchemistLamp.toSprite())
-        alchemist.pos = new Vector(150, 530)
+        alchemist.pos = new Vector(1000, 530)
         this.add(alchemist)
 
         const scene = new SceneTransition()
