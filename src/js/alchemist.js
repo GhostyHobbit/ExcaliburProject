@@ -3,6 +3,7 @@ import { Actor, Engine, Vector, Input, Keys, Camera, ScreenElement, BoundingBox,
 import { Resources, ResourceLoader } from './resources.js'
 import { SceneTransition } from "./sceneTransition.js"
 import { Dialogue } from "./dialogue.js"
+import { Letter } from "./letter.js"
 
 export class Alchemist extends Actor {
 
@@ -37,10 +38,12 @@ export class Alchemist extends Actor {
         }
     }
 
-    interact() {
-        if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
-            const dialogue = new Dialogue()
-            this.scene.add(dialogue)
+    interact(event) {
+        if(event.other instanceof Letter) {
+            if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
+                const dialogue = new Dialogue()
+                this.scene.add(dialogue)
+            }
         }
     }
     sceneTransition(event) {
