@@ -35,6 +35,9 @@ export class Intro extends Scene {
         const floor = new Floor()
         floor.pos = new Vector(2000, 900)
         this.add(floor)
+        
+        const scenetrans = new SceneTransition()
+        this.add(scenetrans)
     }
     onActivate(ctx) {
         Resources.MainThemeMusic.play(0.8);

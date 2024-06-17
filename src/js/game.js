@@ -28,20 +28,23 @@ export class Game extends Engine {
         this.add('levelone', new LevelOne())
         this.goToScene('intro')
 
-        let label = new Label({
-            text: 'Score: 0',
-            pos: new Vector(100, 100),
-            font: new Font({
-                family: 'impact',
-                size: 24,
-                unit: FontUnit.Px
-            })
-        })
+        // let label = new Label({
+        //     text: 'Score: 0',
+        //     pos: new Vector(100, 100),
+        //     font: new Font({
+        //         family: 'impact',
+        //         size: 24,
+        //         unit: FontUnit.Px
+        //     })
+        // })
     
-        this.add(label)
-        label.text = 'Score: 100'
+        // this.add(label)
+        // label.text = 'Score: 100'
 
     }
 }
 
 new Game() 
+
+
+
