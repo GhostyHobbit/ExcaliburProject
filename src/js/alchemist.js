@@ -1,7 +1,9 @@
 
 import { Actor, Engine, Vector, Input, Keys, Camera, ScreenElement, BoundingBox, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
+import { SceneTransition } from "./sceneTransition.js"
 import { Dialogue } from "./dialogue.js"
+import { Letter } from "./letter.js"
 
 export class Alchemist extends Actor {
 
@@ -19,7 +21,7 @@ export class Alchemist extends Actor {
 
         this.scene.camera.strategy.lockToActor(this)
         this.scene.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3780, 720))
-
+        this.on('collisionstart', (event) => this.sceneTransition(event))
     }
 
     onPreUpdate(engine) {
@@ -36,10 +38,17 @@ export class Alchemist extends Actor {
         }
     }
 
-    interact() {
-        if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
-            const dialogue = new Dialogue()
-            this.scene.add(dialogue)
+    interact(event) {
+        if(event.other instanceof Letter) {
+            if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
+                const dialogue = new Dialogue()
+                this.scene.add(dialogue)
+            }
+        }
+    }
+    sceneTransition(event) {
+        if(event.other instanceof SceneTransition) {
+            this.scene.engine.goToScene('levelone')
         }
     }
 }

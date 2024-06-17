@@ -17,21 +17,24 @@ export class Intro extends Scene {
         this.add(intro)
         intro.graphics.use(Resources.Intro.toSprite())
 
+        const letter = new Letter()
+        letter.pos = new Vector(2450, 550)
+        this.add(letter)
+
         const alchemist = new Alchemist()
         alchemist.graphics.use(Resources.AlchemistLamp.toSprite())
-        alchemist.pos = new Vector(100, 300)
+        alchemist.pos = new Vector(150, 530)
         this.add(alchemist)
 
         const scene = new SceneTransition()
         this.add(scene)
 
-        const letter = new Letter()
-        letter.pos = new Vector(2350, 550)
-        this.add(letter)
-
         const floor = new Floor()
-        floor.pos = new Vector(2000, 900)
+        floor.pos = new Vector(2000, 890)
         this.add(floor)
+        
+        const scenetrans = new SceneTransition()
+        this.add(scenetrans)
     }
     onActivate(ctx) {
         Resources.MainThemeMusic.play(0.8);
