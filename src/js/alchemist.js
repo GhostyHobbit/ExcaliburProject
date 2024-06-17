@@ -9,6 +9,7 @@ export class Alchemist extends Actor {
 
     speed = 0
     existingDialogue = false
+    dialogue = new Dialogue()
 
     constructor() {
         super({width: Resources.Alchemist.width, height: Resources.Alchemist.height})
@@ -46,9 +47,11 @@ export class Alchemist extends Actor {
             if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
                 if (this.existingDialogue === false) {
                     this.existingDialogue = true
-                    const dialogue = new Dialogue()
-                    this.scene.add(dialogue)
+                    this.scene.add(this.dialogue)
                     this.scene.actors[6].dialogueFlow('I am the Master Alchemist. You, my apprentice, have to find your way through these tests. These are tests of faith, creativity and exploration. Every choice you make will influence your future.')
+                } else if (this.existingDialogue === true) {
+                    this.scene.actors[6].kill()
+                    this.existingDialogue = false
                 }
             }
         }

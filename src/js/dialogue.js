@@ -33,7 +33,6 @@ export class Dialogue extends Actor {
         this.pos = new Vector (this.scene.actors[2].pos.x, 200)
      }
      dialogueFlow(text) {
-        console.log('wac')
         this.label.text = text
      }
 }
