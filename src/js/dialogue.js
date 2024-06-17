@@ -6,6 +6,17 @@ import { Alchemist } from "./alchemist.js";
 
 export class Dialogue extends Actor {
 
+    
+    label = new Label({
+        text: 'Score: 0',
+        pos: new Vector (-550, -100),
+        width: 1000,
+        font: new Font({
+            family: 'impact',
+            size: 24,
+            unit: FontUnit.Px
+        })
+    })
     dialogueShowing = false
 
     constructor() {
@@ -14,21 +25,15 @@ export class Dialogue extends Actor {
 
     onInitialize() {
         this.graphics.use(Resources.Dialogue.toSprite())
-
-        let label = new Label({
-            text: 'Score: 0',
-            font: new Font({
-                family: 'impact',
-                size: 24,
-                unit: FontUnit.Px
-            })
-        })
     
-        this.addChild(label)
-        label.text = 'Score: 100'
+        this.addChild(this.label)
      }
 
      onPostUpdate() {
         this.pos = new Vector (this.scene.actors[2].pos.x, 200)
+     }
+     dialogueFlow(text) {
+        console.log('wac')
+        this.label.text = text
      }
 }

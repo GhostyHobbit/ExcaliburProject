@@ -48,7 +48,7 @@ export class Alchemist extends Actor {
                     this.existingDialogue = true
                     const dialogue = new Dialogue()
                     this.scene.add(dialogue)
-                    console.log(this.scene.world.entityManager.entities)
+                    this.scene.actors[6].dialogueFlow('I am the Master Alchemist. You, my apprentice, have to find your way through these tests. These are tests of faith, creativity and exploration. Every choice you make will influence your future.')
                 }
             }
         }
