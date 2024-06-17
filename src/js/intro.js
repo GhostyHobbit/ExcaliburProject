@@ -29,9 +29,6 @@ export class Intro extends Scene {
         letter.pos = new Vector(2350, 550)
         this.add(letter)
 
-        const dialogue = new Dialogue()
-        this.add(dialogue)
-
         const floor = new Floor()
         floor.pos = new Vector(2000, 900)
         this.add(floor)
