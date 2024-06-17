@@ -1,6 +1,7 @@
 
 import { Actor, Engine, Vector, Input, Keys, Camera, ScreenElement, BoundingBox, CollisionType } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
+import { Dialogue } from "./dialogue.js"
 
 export class Alchemist extends Actor {
 
@@ -14,12 +15,11 @@ export class Alchemist extends Actor {
     onInitialize(engine) {
         this.game = engine
 
-        // this.graphics.use(Resources.Alchemist.toSprite())
-        // this.pos = new Vector(150, 543)
         this.on('precollision', (event) => this.interact(event))
 
         this.scene.camera.strategy.lockToActor(this)
         this.scene.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3780, 720))
+
     }
 
     onPreUpdate(engine) {
@@ -38,7 +38,8 @@ export class Alchemist extends Actor {
 
     interact() {
         if (this.game.input.keyboard.wasPressed(Input.Keys.E)) {
-            console.log("hello")
+            const dialogue = new Dialogue()
+            this.scene.add(dialogue)
         }
     }
 }

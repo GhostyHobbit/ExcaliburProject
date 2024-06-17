@@ -2,6 +2,7 @@ import { Actor, Engine, Vector, Input } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Label, FontUnit, Font} from "excalibur";
 import { Game } from "./game.js";
+import { Alchemist } from "./alchemist.js";
 
 export class Dialogue extends Actor {
 
@@ -11,11 +12,9 @@ export class Dialogue extends Actor {
 
     onInitialize() {
         this.graphics.use(Resources.Dialogue.toSprite())
-        this.pos = new Vector(620, 200)
 
         let label = new Label({
             text: 'Score: 0',
-            pos: new Vector(100, 100),
             font: new Font({
                 family: 'impact',
                 size: 24,
@@ -23,7 +22,11 @@ export class Dialogue extends Actor {
             })
         })
     
-        this.Game.add(label)
+        this.addChild(label)
         label.text = 'Score: 100'
-    }
+     }
+
+     onPostUpdate() {
+        this.pos = new Vector (this.scene.actors[1].pos.x, 200)
+     }
 }

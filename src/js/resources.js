@@ -12,9 +12,9 @@ const Resources = {
     L1Door: new ImageSource('images/levelone/door.png'),
     Floor: new ImageSource('images/floorbar.png'),
     // music
-    MainThemeMusic: new Sound('music/CLE_4_Main_Theme.mp3'),
+    // MainThemeMusic: new Sound('music/CLE_4_Main_Theme.mp3'),
     // LevelOneMusic: new Sound('music/CLE_4_Level_1.mp3'),
-    LevelTwoMusic: new Sound('music/CLE_4_Level_2.mp3')
+    // LevelTwoMusic: new Sound('music/CLE_4_Level_2.mp3')
 }
 const ResourceLoader = new Loader()
 for (let res of Object.values(Resources)) {
