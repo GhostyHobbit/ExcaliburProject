@@ -6,6 +6,7 @@ import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
 import { Dialogue } from './dialogue.js'
 import { LevelOne } from './levelone.js'
+import { LevelTwo } from './leveltwo.js';
 import { Intro } from './intro.js'
 
 export class Game extends Engine {
@@ -26,7 +27,8 @@ export class Game extends Engine {
     startGame() {
         this.add('intro', new Intro())
         this.add('levelone', new LevelOne())
-        this.goToScene('intro')
+        this.add('leveltwo', new LevelTwo())
+        this.goToScene('leveltwo')
     }
 }
 
