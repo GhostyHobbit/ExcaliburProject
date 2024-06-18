@@ -11,6 +11,7 @@ const Resources = {
     Intro: new ImageSource('images/introscene.png'),
     Dialogue: new ImageSource('images/dialogue.png'),
     L1Door: new ImageSource('images/levelone/door.png'),
+    LevelFour: new ImageSource('images/LevelfourGood.png'),
     Floor: new ImageSource('images/floorbar.png')
     // music
     // MainThemeMusic: new Sound('music/CLE_4_Main_Theme.mp3'),

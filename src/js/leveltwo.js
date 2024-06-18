@@ -29,4 +29,7 @@ export class LevelTwo extends Scene {
         alchemist.graphics.use(Resources.Alchemist.toSprite())
         this.add(alchemist)
     }
+    onDeactivate() {
+        this.clear()
+    }
 }
