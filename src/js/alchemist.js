@@ -9,8 +9,10 @@ export class Alchemist extends Actor {
 
     speed = 0
     existingDialogue = false
+    dialogueCount = 0
     dialogue = new Dialogue()
     levelEnded = false
+    dialogueText = ['cracked', 'chickens', 'definitely', 'say', 'wac']
 
     constructor() {
         super({width: Resources.Alchemist.width, height: Resources.Alchemist.height})
@@ -49,10 +51,20 @@ export class Alchemist extends Actor {
                 if (this.existingDialogue === false) {
                     this.existingDialogue = true
                     this.scene.add(this.dialogue)
-                    this.scene.actors[6].dialogueFlow('I am the Master Alchemist. You, my apprentice, have to find your way through these tests. These are tests of faith, creativity and exploration. Every choice you make will influence your future.')
+                    this.scene.actors[6].dialogueFlow(`I am the Master Alchemist. You, my apprentice, have to find your way through these tests. These are tests of faith, \ncreativity and exploration. Every choice you make will influence your future.`)
                 } else if (this.existingDialogue === true) {
-                    this.scene.actors[6].kill()
-                    this.existingDialogue = false
+                    this.dialogueCount++
+                    console.log(this.dialogueCount)
+                    if (this.dialogueCount >= this.dialogueText.length) {
+                        console.log(this.scene.actors)
+                        this.scene.actors[6].kill()
+                        this.existingDialogue = false
+                        this.dialogueCount = 0
+                    } else {
+                        //you can reuse this in every scene (needs to be finetuned but works for now) to run dialogue
+                        //for questions --> ask Lucas
+                        this.scene.sceneDialogue(this.dialogueCount)
+                    }
                 }
             }
         }
@@ -60,9 +72,9 @@ export class Alchemist extends Actor {
     sceneTransition(event) {
         console.log('collision')
         if(event.other instanceof SceneTransition && this.levelEnded === false) {
-            console.log('wac')
             this.levelEnded = true
-            this.scene.engine.goToScene('levelone')
+            //you can reuse this function in every scene, makes for less code here
+            this.scene.changeScene()
         }
     }
 }
