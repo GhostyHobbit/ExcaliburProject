@@ -20,6 +20,10 @@ export class LevelTwo extends Scene {
         invisfloor.pos = new Vector(1900, 580)
         this.add(invisfloor)
 
+        const letter = new Letter()
+        letter.pos = new Vector(2060, 260)
+        this.add(letter)
+
         const alchemist = new Alchemist()
         alchemist.pos = new Vector(800, 400)
         alchemist.graphics.use(Resources.Alchemist.toSprite())
