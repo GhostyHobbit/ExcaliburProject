@@ -10,6 +10,7 @@ export class Alchemist extends Actor {
     speed = 0
     existingDialogue = false
     dialogue = new Dialogue()
+    levelEnded = false
 
     constructor() {
         super({width: Resources.Alchemist.width, height: Resources.Alchemist.height})
@@ -23,7 +24,7 @@ export class Alchemist extends Actor {
 
         this.scene.camera.strategy.lockToActor(this)
         this.scene.camera.strategy.limitCameraBounds(new BoundingBox(0, 0, 3780, 720))
-        this.on('collisionstart', (event) => this.sceneTransition(event))
+        this.on('collisionend', (event) => this.sceneTransition(event))
     }
 
     onPreUpdate(engine) {
@@ -57,7 +58,10 @@ export class Alchemist extends Actor {
         }
     }
     sceneTransition(event) {
-        if(event.other instanceof SceneTransition) {
+        console.log('collision')
+        if(event.other instanceof SceneTransition && this.levelEnded === false) {
+            console.log('wac')
+            this.levelEnded = true
             this.scene.engine.goToScene('levelone')
         }
     }

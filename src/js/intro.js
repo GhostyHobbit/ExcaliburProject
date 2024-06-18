@@ -12,6 +12,9 @@ export class Intro extends Scene {
     }
 
     onInitialize(engine) {
+       
+    }
+    onActivate(ctx) {
         const intro = new Actor()
         intro.pos = new Vector(1890, 360)
         this.add(intro)
@@ -35,8 +38,11 @@ export class Intro extends Scene {
         
         const scenetrans = new SceneTransition()
         this.add(scenetrans)
+        
+        // Resources.MainThemeMusic.play(0.8);
     }
-    onActivate(ctx) {
-        Resources.MainThemeMusic.play(0.8);
+    onDeactivate() {
+        this.clear()
     }
+
 }
