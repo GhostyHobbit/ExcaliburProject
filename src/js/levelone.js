@@ -4,7 +4,7 @@ import { Alchemist } from './alchemist.js'
 import { Letter } from './letter.js'
 import { InvisibleFloor } from './invisiblefloor.js'
 import { Door } from './door.js'
-import { LevelOneScreenTwo } from "./levelonescenetwo.js"
+//import { LevelOneScreenTwo } from "./levelonescenetwo.js"
 
 export class LevelOne extends Scene {
 
