@@ -7,11 +7,17 @@ import { Floor } from './floors.js'
 import { SceneTransition } from "./sceneTransition.js"
 
 export class Intro extends Scene {
+
+    dialogueText = ['cracked', 'chickens', 'definitely', 'say', 'wac']
+
     constructor() {
         super()
     }
 
     onInitialize(engine) {
+       
+    }
+    onActivate(ctx) {
         const intro = new Actor()
         intro.pos = new Vector(1890, 360)
         this.add(intro)
@@ -35,8 +41,16 @@ export class Intro extends Scene {
         
         const scenetrans = new SceneTransition()
         this.add(scenetrans)
+
+        // Resources.MainThemeMusic.play(0.8);
     }
-    onActivate(ctx) {
-        Resources.MainThemeMusic.play(0.8);
+    onDeactivate() {
+        this.clear()
+    }
+    changeScene() {
+        this.engine.goToScene('levelone')
+    }
+    sceneDialogue(number) {
+        this.actors[6].dialogueFlow(this.dialogueText[number])
     }
 }
