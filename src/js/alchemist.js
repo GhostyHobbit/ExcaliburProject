@@ -37,6 +37,9 @@ export class Alchemist extends Actor {
             this.speed = -200
             this.vel = new Vector(this.speed, 0)
             this.graphics.flipHorizontal = true 
+        } else if (engine.mygamepad) {
+            const x = engine.mygamepad.getAxes(Axes.LeftStickX)
+            this.vel = new Vector(x * 10, 0)
         } else {
             this.vel = new Vector(0, 0) 
         }

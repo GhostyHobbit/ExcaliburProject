@@ -10,6 +10,8 @@ import { Intro } from './intro.js'
 
 export class Game extends Engine {
 
+    mygamepad
+
     constructor() {
         super({
             width: 1280,
@@ -27,6 +29,12 @@ export class Game extends Engine {
         this.add('intro', new Intro())
         this.add('levelone', new LevelOne())
         this.goToScene('intro')
+
+        this.input.gamepads.enabled = true
+        this.input.gamepads.on('connect', (connectevent) => {
+            console.log("gamepad detected")
+            this.mygamepad = connectevent.gamepad
+        })
     }
 }
 
